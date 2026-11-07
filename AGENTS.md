@@ -1,13 +1,14 @@
 # AGENTS.md
 
 Ce fichier fait autorité pour tout agent qui travaille dans `x-quark/releases` **ou qui publie une
-application x-quark** depuis un autre dépôt.
+application** depuis un autre dépôt, quelle que soit son organisation GitHub.
 
 ## 1. Mission
 
-`x-quark/releases` est le point de distribution public des applications x-quark dont le code source
-reste privé : installeurs, signatures, empreintes et manifestes de mise à jour. Le dépôt ne contient
-que le contrat de distribution, l’outil qui l’applique et les releases.
+`x-quark/releases` est le point de distribution public unique des applications de Max dont le code
+source reste privé, qu’il vive dans l’organisation `x-quark` ou dans une autre : installeurs,
+signatures, empreintes et manifestes de mise à jour. Il n’existe pas d’autre dépôt de distribution.
+Le dépôt ne contient que le contrat de distribution, l’outil qui l’applique et les releases.
 
 Il n’héberge ni code produit, ni secret, ni clé privée, ni build de développement.
 
@@ -26,7 +27,8 @@ Justification : [ADR 0001](journal/decisions/0001-shared-public-distribution.md)
 
 Le contrat complet est [docs/contract.md](docs/contract.md). L’essentiel :
 
-- `<app>` : identifiant court et stable, en minuscules (`rplace`, `x-tools`, `cosmos`).
+- `<app>` : identifiant court et stable, en minuscules (`rplace`, `x-tools`, `cosmos`), unique
+  dans ce dépôt toutes organisations confondues.
 - Release de version `<app>-vX.Y.Z` : tous les fichiers de la version ; jamais modifiée.
 - Canal `<app>` : release permanente, fichiers à nom fixe sans numéro de version
   (`Rplace-setup.exe`) et manifeste `latest.json` ; jamais supprimé, renommé ni vidé.

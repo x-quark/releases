@@ -6,7 +6,8 @@
 
 ## Contexte
 
-Les dépôts des applications x-quark sont privés. Leurs releases ne sont pas accessibles sans
+Les dépôts des applications de Max, dans l’organisation x-quark comme dans ses autres
+organisations, sont privés. Leurs releases ne sont pas accessibles sans
 authentification : pas de lien de téléchargement public, et le plugin de mise à jour de Tauri ne
 peut pas lire `latest.json` sans jeton. Des applications ont contourné le problème avec un jeton
 GitHub en lecture saisi dans l’application ; d’autres ont envisagé de rendre leur dépôt public ou
@@ -14,8 +15,9 @@ de créer chacune un dépôt miroir public.
 
 ## Décision
 
-Créer le dépôt public `x-quark/releases`, commun à toutes les applications, qui ne contient que les
-fichiers distribués, le contrat de distribution et l’outil de publication.
+Créer le dépôt public `x-quark/releases`, commun à toutes les applications de Max quelle que soit
+l’organisation de leur code source, qui ne contient que les fichiers distribués, le contrat de
+distribution et l’outil de publication.
 
 Chaque application y publie une release de version `<app>-vX.Y.Z` et tient à jour son canal `<app>`,
 release permanente qui porte ses fichiers à nom fixe et son manifeste de mise à jour. L’outil
@@ -31,6 +33,11 @@ Rejetée : expose le code source, son historique et la documentation interne.
 ### Un dépôt miroir public par application
 
 Rejetée : multiplie les dépôts, réglages et jetons sans rien apporter de plus qu’un dépôt commun.
+
+### Un dépôt de distribution par organisation
+
+Rejetée par Max : un seul point de distribution, un seul outil et un seul catalogue pour toutes ses
+applications.
 
 ### Jeton GitHub dans l’application
 
