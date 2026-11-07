@@ -1,34 +1,55 @@
-# Téléchargements x-quark
+# x-quark releases
 
-Installeurs et mises à jour des applications x-quark. Le code source des applications est
-privé : ce dépôt ne contient que les versions publiées.
+**English** · [Français](./README.fr.md)
 
-| Application | Plateforme | Télécharger | Versions |
+Public downloads and update channels of x-quark applications. Their source code is private: this
+repository only distributes installers, signatures and update manifests.
+
+## Catalog
+
+| Application | Platforms | Download | Versions |
 | --- | --- | --- | --- |
-| **Rplace** — corrige vos erreurs de dictée en un raccourci, dans n’importe quelle application. | Windows 10/11 | [Rplace-setup.exe](https://github.com/x-quark/releases/releases/download/rplace/Rplace-setup.exe) | [Historique](https://github.com/x-quark/releases/releases?q=rplace) |
+| **Rplace**: fixes dictation errors in the selected text of any Windows application | Windows 10/11 (x64) | [Rplace-setup.exe](https://github.com/x-quark/releases/releases/download/rplace/Rplace-setup.exe) | [History](https://github.com/x-quark/releases/releases?q=rplace) |
 
-Les liens « Télécharger » donnent toujours la dernière version.
+Download links never change: they always serve the latest version.
 
-## Organisation
+## How releases are organized
 
-Pour chaque application, identifiée par un nom court (`rplace`…) :
+Each application, identified by a short name such as `rplace`, publishes two kinds of releases:
 
-| Release | Contenu |
-| --- | --- |
-| `app-vX.Y.Z` | Une par version : installeur(s), signature de mise à jour (`.sig`), empreintes `SHA256SUMS.txt`, notes de version. |
-| `app` | Le **canal** de l’application, permanent : l’installeur de la dernière version sous un nom fixe, et `latest.json` que l’application installée consulte pour se mettre à jour. |
+| Release | Example | Contents |
+| --- | --- | --- |
+| Version | `rplace-v1.0.1` | Installers, update signatures, manifest, `SHA256SUMS.txt` and notes of one version. Never modified once published. |
+| Channel | `rplace` | Permanent release named after the application: the latest installers under fixed names, and the manifest that installed copies read to update themselves. |
 
-Adresse lue par les applications : `https://github.com/x-quark/releases/releases/download/<app>/latest.json`.
-Elle ne doit jamais changer : les versions installées la gardent.
+The *Latest* badge GitHub shows on this repository only reflects the last publication, whatever the
+application: never rely on `/releases/latest`.
 
-## Sécurité
+## Verifying a download
 
-Chaque application vérifie ses mises à jour avec sa propre clé publique (signature minisign) :
-un fichier modifié ou remplacé ici serait refusé par les installations existantes. Ce dépôt ne
-contient ni code source ni clé.
+Compare the SHA-256 of the downloaded file with the line of its versioned installer in the
+`SHA256SUMS.txt` of the version release (the fixed-name installer is an exact copy):
 
-## Publier
+```powershell
+Get-FileHash .\Rplace-setup.exe -Algorithm SHA256
+```
 
-Depuis le dépôt de l’application, en local, avec son script de release (aucun workflow ici) :
-il crée la release `app-vX.Y.Z`, puis met à jour le canal `app` (dernier installeur et
-`latest.json`) une fois les fichiers en ligne.
+Installers are not signed with a code-signing certificate: Windows SmartScreen may show "Windows
+protected your PC" (More info, then Run anyway). Automatic updates are signed: each application
+checks every update against its own public key before installing it, so a file altered here would be
+rejected.
+
+## Maintainers
+
+- [Distribution contract](docs/contract.md): names, files, manifests and rules (French).
+- [Publishing an application](docs/publishing.md): one command, run locally from the application
+  repository (French).
+- [ADR 0001](journal/decisions/0001-shared-public-distribution.md): why one shared public repository.
+- Agents: [AGENTS.md](AGENTS.md).
+
+```bash
+node --test                      # tests of the distribution tool
+node scripts/dist.mjs check      # audits every channel and this catalog, anonymously
+```
+
+© x-quark. All rights reserved. Each installer includes the notices of its third-party components.
