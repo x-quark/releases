@@ -9,6 +9,7 @@ repository only distributes installers, signatures and update manifests.
 
 | Application | Platforms | Download | Versions |
 | --- | --- | --- | --- |
+| **Live**: a clear view of your AI agents, what is running, what needs you and what has finished, with notifications | Windows 10/11 (x64), Android 8+ | [Live-setup.exe](https://github.com/x-quark/releases/releases/download/live/Live-setup.exe) · [Live-android.apk](https://github.com/x-quark/releases/releases/download/live/Live-android.apk) | [History](https://github.com/x-quark/releases/releases?q=live) |
 | **Popcorn**: movie and TV wishes of a household, from the request to its arrival on Plex, with notifications | Windows 10/11 (x64), Android 8+ | [Popcorn-setup.exe](https://github.com/x-quark/releases/releases/download/popcorn/Popcorn-setup.exe) · [Popcorn-android.apk](https://github.com/x-quark/releases/releases/download/popcorn/Popcorn-android.apk) | [History](https://github.com/x-quark/releases/releases?q=popcorn) |
 | **Rplace**: fixes dictation errors in the selected text of any Windows application | Windows 10/11 (x64) | [Rplace-setup.exe](https://github.com/x-quark/releases/releases/download/rplace/Rplace-setup.exe) | [History](https://github.com/x-quark/releases/releases?q=rplace) |
 
