@@ -1,7 +1,8 @@
 # Contrat de distribution
 
-Ce contrat s’applique à toute application x-quark distribuée par `x-quark/releases`. Les copies
-installées des applications en dépendent : une adresse publiée ne change plus.
+Ce contrat s’applique à toute application distribuée par `x-quark/releases`, que son code source
+vive dans l’organisation `x-quark` ou dans une autre organisation de Max. Les copies installées des
+applications en dépendent : une adresse publiée ne change plus.
 
 `scripts/dist.mjs` l’applique et le vérifie ; ce document en est la référence.
 
@@ -9,7 +10,8 @@ installées des applications en dépendent : une adresse publiée ne change plus
 
 `<app>` identifie l’application dans les noms de releases et les adresses : minuscules, chiffres et
 tirets (`rplace`, `x-tools`, `cosmos`), sans segment `-v<chiffre>`. Par défaut, c’est le nom du dépôt
-source. Il ne change jamais.
+source. Il est unique dans ce dépôt, toutes organisations confondues : en cas de doublon, en convenir
+avec Max avant la première publication. Il ne change jamais.
 
 ## 2. Release de version `<app>-vX.Y.Z`
 
