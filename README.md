@@ -9,6 +9,7 @@ repository only distributes installers, signatures and update manifests.
 
 | Application | Platforms | Download | Versions |
 | --- | --- | --- | --- |
+| **Popcorn**: movie and TV wishes of a household, from the request to its arrival on Plex, with notifications | Windows 10/11 (x64), Android 8+ | [Popcorn-setup.exe](https://github.com/x-quark/releases/releases/download/popcorn/Popcorn-setup.exe) · [Popcorn-android.apk](https://github.com/x-quark/releases/releases/download/popcorn/Popcorn-android.apk) | [History](https://github.com/x-quark/releases/releases?q=popcorn) |
 | **Rplace**: fixes dictation errors in the selected text of any Windows application | Windows 10/11 (x64) | [Rplace-setup.exe](https://github.com/x-quark/releases/releases/download/rplace/Rplace-setup.exe) | [History](https://github.com/x-quark/releases/releases?q=rplace) |
 
 Download links never change: they always serve the latest version.
